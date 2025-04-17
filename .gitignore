@@ -1,0 +1,15 @@
+# Byte-compiled / optimized /DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.pytest_cache/
+
+# Virtual environment
+.mcvenv/
+env/
+
+# editor files
+.vscode/
