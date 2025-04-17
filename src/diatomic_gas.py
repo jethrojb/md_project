@@ -9,7 +9,7 @@ particle_spec = [('x', nb.float64), ('y', nb.float64), ('z', nb.float64),
                  ('dx', nb.float64), ('dy', nb.float64), ('dz', nb.float64), 
                  ('dr2', nb.float64), ('pe', nb.float64)]
 
-sim_spec = [('T', nb.float64), ('rho', nb.float64), ('N', nb.int64), 
+sim_spec = [('T', nb.float64), ('rho', nb.float64), ('Nm', nb.int64), ('N', nb.int64),
             ('eq', nb.int64), ('pr', nb.int64), ('itrr', nb.int64), 
             ('rc', nb.float64), ('rc2', nb.float64), ('dt', nb.float64), 
             ('length', nb.float64), ('output', nb.int64), ('utail', nb.float64), 
@@ -39,7 +39,8 @@ class simulation:
     def __init__(self):
         self.T=0.0              # temperature
         self.rho=0.0            # density
-        self.N=0                # number of molecules
+        self.Nm=0               # number of molecules
+        self.N=0                # number of atoms
         self.eq=0               # equilibration steps
         self.pr=0               # production steps
         self.itrr=0             # interval for saving trajectories
