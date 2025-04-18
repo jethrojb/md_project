@@ -32,6 +32,11 @@ def md(sim, atom):
         verlet2(sim, atom)
         instant_prop.ke, instant_prop.T = ke_and_T(atom)
 
+        avg_prop.pe = avg_prop.pe + instant_prop.pe
+        avg_prop.ke = avg_prop.ke + instant_prop.ke
+        avg_prop.T = avg_prop.T + instant_prop.T
+        avg_prop.virial = avg_prop.virial + instant_prop.virial
+
         if i % sim.output == 0:
             P=sim.rho*instant_prop.T + 1.0/3.0/sim.length**3.0*instant_prop.virial + \
               sim.ptail
@@ -45,6 +50,8 @@ def md(sim, atom):
                              (instant_prop.ke + instant_prop.pe)/sim.N + sim.utail))
             fp.close()
             print("Equilibration Step " + str(i) + "\n")
+            # for i in range(5):
+            #     print(atom[i].x)
 
         if i % rescale_freq == 0:
             scalevelocities(sim, atom, avg_prop.T/i)

@@ -8,7 +8,7 @@ import numpy as np
 sim = simulation()
 sim.T = 0.85
 sim.rho=0.9
-sim.Nm=27
+sim.Nm=100
 sim.eq=50
 sim.pr=100
 sim.itrr=1
@@ -21,7 +21,7 @@ sim.rdfN=100
 sim.rdf=1
 sim.outputfile='test_output.txt'
 sim.output=1
-sim.k = 488331.78
+sim.k = 0
 
 atom = initializeGrid(sim)
 
