@@ -14,7 +14,8 @@ sim_spec = [('T', nb.float64), ('rho', nb.float64), ('Nm', nb.int64), ('N', nb.i
             ('rc', nb.float64), ('rc2', nb.float64), ('bl', nb.float64), ('dt', nb.float64), 
             ('length', nb.float64), ('output', nb.int64), ('utail', nb.float64), 
             ('ptail', nb.float64), ('seed', nb.float64), ('rdfmin', nb.float64), 
-            ('rdfmax', nb.float64), ('rdfN', nb.int64), ('rdf', nb.int64)]
+            ('rdfmax', nb.float64), ('rdfN', nb.int64), ('rdf', nb.int64),
+            ('inputfile', nb.types.unicode_type), ('outputfile', nb.types.unicode_type)]
 
 @nb.experimental.jitclass(particle_spec)
 class particle:
@@ -57,6 +58,8 @@ class simulation:
         self.rdfmax=0.0         # maximum r value for rdf
         self.rdfN=0             # number of bins for rdf
         self.rdf=0              # frequency to accumulate the rdf
+        self.inputfile=''       # name of input file
+        self.outputfile=''      # name of output file
 
 class simprops:
     def __init__(self):

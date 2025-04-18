@@ -1,7 +1,7 @@
 # This is to test that my code works
 
 from src.diatomic_gas import particle, simulation, simprops
-from src.initialize import initializeGrid
+from src.initialize import initializeGrid, initializeVelocities, initializeFiles
 import numpy as np
 
 sim = simulation()
@@ -18,16 +18,25 @@ sim.rdfmin=0.8
 sim.rdfmax=4.0
 sim.rdfN=100
 sim.rdf=1
+sim.outputfile='test_output.txt'
 
 atom = initializeGrid(sim)
 
 # print(atom)
 
 # Assuming 'atom' is your numba.typed.List
-atom_array = np.array([p for p in atom])
-for i in range(sim.Nm):
-    print('x')
-    print(atom_array[i].x, atom_array[i + sim.Nm].x)
-    print('y')
-    print(atom_array[i].y, atom_array[i + sim.Nm].y)
+# atom_array = np.array([p for p in atom])
+# for i in range(sim.Nm):
+#     print('x')
+#     print(atom_array[i].x, atom_array[i + sim.Nm].x)
+#     print('y')
+#     print(atom_array[i].y, atom_array[i + sim.Nm].y)
 
+
+# Test initializing velocities
+
+initializeVelocities(sim, atom)
+
+# Test initializing output file
+
+initializeFiles(sim, atom)

@@ -13,3 +13,6 @@ env/
 
 # editor files
 .vscode/
+
+# output files
+test_output.txt

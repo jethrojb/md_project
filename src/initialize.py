@@ -78,7 +78,7 @@ def initializeGrid(sim):
                     moleculeindex += 1
 
     return atom
-                       
+
 def initializeVelocities(sim, atom):
     for i in range(sim.Nm):
         vx = random.uniform(-1,1)
@@ -98,3 +98,38 @@ def initializeVelocities(sim, atom):
     T = temperature(atom)
 
     scalevelocities(sim, atom, T)
+
+def initializeFiles(sim, atom):
+    file = open(sim.outputfile, 'w')
+    file.write('MD simulation of ' + str(sim.Nm) + 'LJ Particles at T*={:.4f}'.format(sim.T) +
+               ' and ' + 'rho*={:.4f}\n\n'.format(sim.rho))
+    
+    file.write('Output File:        ' + sim.outputfile + '\n\n')
+    file.write("\n    ***Input Parameters***\n");
+    file.write("N           " + str(sim.Nm) + "\n")
+    file.write("temp        " + str(sim.T) + "\n")
+    file.write("rho         " + str(sim.rho) + "\n")
+    file.write("esteps      " + str(sim.eq) + "\n")
+    file.write("psteps      " + str(sim.pr) + "\n")
+    file.write("rcut        " + str(sim.rc) + "\n")
+    file.write("dt          " + str(sim.dt) + "\n")
+
+    file.write("\n    ***INITIAL POSITIONS, XYZ Format***\n")
+    file.write(str(sim.Nm) + "\nYou can copy these coordinates to a file to " +
+             "open in a viewer.\n")
+    for i in range(sim.Nm):
+        file.write("C\t{:13.6f}\t{:13.6f}\t{:13.6f}\n".format(atom[i].x, \
+                                                            atom[i].y, \
+                                                            atom[i].z))
+    
+    file.write("\n         ***INITIAL VELOCITIES***\n")
+    for i in range(sim.Nm):
+        file.write("\t{:13.6f}\t{:13.6f}\t{:13.6f}\n".format(atom[i].vx, \
+                                                               atom[i].vy, \
+                                                               atom[i].vz))
+        
+    file.write("\n\nIteration                T              T Ave.       " +
+                 "       P              P Ave.            KE               " +
+                 "PE               TE\n\n")
+    
+    file.close()
