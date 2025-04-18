@@ -16,3 +16,6 @@ env/
 
 # output files
 test_output.txt
+
+# scratch work
+scratch.ipynb

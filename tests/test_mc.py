@@ -2,6 +2,7 @@
 
 from src.diatomic_gas import particle, simulation, simprops
 from src.initialize import initializeGrid, initializeVelocities, initializeFiles
+from src.md import md
 import numpy as np
 
 sim = simulation()
@@ -19,6 +20,8 @@ sim.rdfmax=4.0
 sim.rdfN=100
 sim.rdf=1
 sim.outputfile='test_output.txt'
+sim.output=1
+sim.k = 488331.78
 
 atom = initializeGrid(sim)
 
@@ -40,3 +43,5 @@ initializeVelocities(sim, atom)
 # Test initializing output file
 
 initializeFiles(sim, atom)
+
+md(sim, atom)

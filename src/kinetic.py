@@ -14,3 +14,11 @@ def temperature(atom):
 
     T = (2.0/3.0/N)*kinetic_energy(atom)
     return T
+
+def ke_and_T(atom):
+    N = len(atom)
+
+    ke = kinetic_energy(atom)
+
+    T = 2.0/3.0/N*ke
+    return (ke, T)

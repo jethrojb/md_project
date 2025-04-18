@@ -11,7 +11,8 @@ particle_spec = [('x', nb.float64), ('y', nb.float64), ('z', nb.float64),
 
 sim_spec = [('T', nb.float64), ('rho', nb.float64), ('Nm', nb.int64), ('N', nb.int64),
             ('eq', nb.int64), ('pr', nb.int64), ('itrr', nb.int64), 
-            ('rc', nb.float64), ('rc2', nb.float64), ('bl', nb.float64), ('dt', nb.float64), 
+            ('rc', nb.float64), ('rc2', nb.float64), ('bl', nb.float64), 
+            ('dt', nb.float64), ('k', nb.float64),
             ('length', nb.float64), ('output', nb.int64), ('utail', nb.float64), 
             ('ptail', nb.float64), ('seed', nb.float64), ('rdfmin', nb.float64), 
             ('rdfmax', nb.float64), ('rdfN', nb.int64), ('rdf', nb.int64),
@@ -49,6 +50,7 @@ class simulation:
         self.rc2=0.0            # square of cutoff radius
         self.bl=0.0             # bond length
         self.dt=0.0             # time step
+        self.k=0.0
         self.length=0.0         # length of simulation blox
         self.output=0           # interval for output of instantaneous props
         self.utail=0.0          # tail correction to energy
