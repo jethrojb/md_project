@@ -8,9 +8,9 @@ import numpy as np
 sim = simulation()
 sim.T = 0.85
 sim.rho=0.9
-sim.Nm=100
-sim.eq=50
-sim.pr=100
+sim.Nm=108
+sim.eq=20
+sim.pr=20
 sim.itrr=1
 sim.rc=3.0
 sim.bl=0.329

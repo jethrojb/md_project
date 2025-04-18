@@ -17,6 +17,7 @@ def initializeGrid(sim):
     sim.utail = (8/3)*np.pi*sim.rho*((1/3)*sim.rc**(-9.0) - sim.rc**(-3.0))
     sim.ptail = (16/3)*np.pi*sim.rho*sim.rho*((2/3)*sim.rc**(-9.0) - sim.rc**(-3.0))
     sim.N = 2*sim.Nm
+    sim.rc2 = sim.rc*sim.rc
 
     atom=List()
     for i in range(2*sim.Nm):
@@ -26,9 +27,9 @@ def initializeGrid(sim):
     moleculeindex=0
     case=0
 
-    nlin = np.uint((sim.Nm/4)**(1.0/3.0))
+    nlin = np.uint((sim.Nm/4.0)**(1.0/3.0))
 
-    if nlin**3 < sim.Nm/4:
+    if nlin**3 < sim.Nm/4.0:
         nlin = nlin + 1
 
     a = sim.length/nlin
@@ -74,7 +75,8 @@ def initializeGrid(sim):
                         atom[moleculeindex + sim.Nm].y = 0.5*a+y*a
                         atom[moleculeindex + sim.Nm].z = 0.0+z*a
 
-                    
+                        case=0
+
                     moleculeindex += 1
 
     return atom

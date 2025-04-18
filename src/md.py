@@ -50,8 +50,6 @@ def md(sim, atom):
                              (instant_prop.ke + instant_prop.pe)/sim.N + sim.utail))
             fp.close()
             print("Equilibration Step " + str(i) + "\n")
-            # for i in range(5):
-            #     print(atom[i].x)
 
         if i % rescale_freq == 0:
             scalevelocities(sim, atom, avg_prop.T/i)
