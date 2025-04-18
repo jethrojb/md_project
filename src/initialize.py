@@ -102,6 +102,19 @@ def initializeVelocities(sim, atom):
     scalevelocities(sim, atom, T)
 
 def initializeFiles(sim, atom):
+    # Initilaize the .trr file.
+    fi=open(sim.moviefile,"w")
+    fi.close()
+    
+    # Write the .xyz file needed for loading the .trr file.
+    fi=open(sim.moviefile,"w")
+    fi.write(str(sim.N)+"\nLoad this file in VMD\n")
+    for i in range(sim.N):
+        fi.write("C\t{:13.6f}\t{:13.6f}\t{:13.6f}\n".format(atom[i].x, \
+                                                            atom[i].y, \
+                                                            atom[i].z))
+    fi.close()
+
     file = open(sim.outputfile, 'w')
     file.write('MD simulation of ' + str(sim.Nm) + 'LJ Particles at T*={:.4f}'.format(sim.T) +
                ' and ' + 'rho*={:.4f}\n\n'.format(sim.rho))

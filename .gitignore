@@ -16,6 +16,7 @@ env/
 
 # output files
 test_output.txt
+movie.xyz
 
 # scratch work
 scratch.ipynb

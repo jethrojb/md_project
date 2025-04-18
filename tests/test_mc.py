@@ -9,8 +9,8 @@ sim = simulation()
 sim.T = 0.85
 sim.rho=0.9
 sim.Nm=108
-sim.eq=20
-sim.pr=20
+sim.eq=200
+sim.pr=200
 sim.itrr=1
 sim.rc=3.0
 sim.bl=0.329
@@ -22,6 +22,8 @@ sim.rdf=1
 sim.outputfile='test_output.txt'
 sim.output=1
 sim.k = 0
+sim.moviefile='movie.xyz'
+sim.moviefreq=2
 
 atom = initializeGrid(sim)
 
