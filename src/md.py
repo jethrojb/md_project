@@ -9,7 +9,7 @@ from src.rdf import rdf_accumulate
 from src.finalize_file import finalizefile
 
 def md(sim, atom):
-    rescale_freq = 100
+    rescale_freq = sim.rescale_freq
 
     instant_prop = simprops()
     avg_prop = simprops()

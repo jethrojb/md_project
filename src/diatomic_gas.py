@@ -17,7 +17,8 @@ sim_spec = [('T', nb.float64), ('rho', nb.float64), ('Nm', nb.int64), ('N', nb.i
             ('ptail', nb.float64), ('seed', nb.float64), ('rdfmin', nb.float64), 
             ('rdfmax', nb.float64), ('rdfN', nb.int64), ('rdf', nb.int64),
             ('inputfile', nb.types.unicode_type), ('outputfile', nb.types.unicode_type),
-            ('moviefile', nb.types.unicode_type), ('moviefreq', nb.int64)]
+            ('moviefile', nb.types.unicode_type), ('moviefreq', nb.int64),
+            ('rescale_freq', nb.int64)]
 
 @nb.experimental.jitclass(particle_spec)
 class particle:
@@ -65,6 +66,7 @@ class simulation:
         self.outputfile=''      # name of output file
         self.moviefile=''
         self.moviefreq=0
+        self.rescale_freq=0      # temperature rescale frequency during equilibration
 
 class simprops:
     def __init__(self):
