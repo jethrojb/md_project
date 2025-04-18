@@ -1,8 +1,12 @@
 # This module contains code for initializing the simulation
 
 # from src.diatomic_gas import 
+import random, sys
 import numpy as np
 from src.diatomic_gas import particle, simulation
+from src.kinetic import temperature
+from src.scale_velocities import scalevelocities
+from src.momentum import checkMomentum, momentumCorrection
 from numba.typed import List
 from numba import njit
 
@@ -75,9 +79,22 @@ def initializeGrid(sim):
 
     return atom
                        
+def initializeVelocities(sim, atom):
+    for i in range(sim.Nm):
+        vx = random.uniform(-1,1)
+        vy = random.uniform(-1,1)
+        vz = random.uniform(-1,1)
+        atom[i].vx = vx
+        atom[i + sim.Nm].vx = vx
+        atom[i].vy = vy
+        atom[i + sim.Nm].vy = vy
+        atom[i].vz = vz
+        atom[i + sim.Nm].vz = vz
 
+    momentumflag = momentumCorrection(atom)
+    if momentumflag:
+        sys.exit("The linear momentum could not be zeroed.")
 
+    T = temperature(atom)
 
-
-
-    
+    scalevelocities(sim, atom, T)
