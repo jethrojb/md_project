@@ -5,7 +5,7 @@
 # --- Simulation Parameters ---
 
 # Dimensionless temperature
-T = 8
+T = 8.0
 
 # Dimensionless density
 rho = 0.0009
@@ -14,10 +14,10 @@ rho = 0.0009
 Nm = 108
 
 # Number of equilibration steps
-EqSteps = 1000
+EqSteps = 5000
 
 # Number of Production steps
-PrSteps = 1000
+PrSteps = 10000
 
 # Lennard-Jones cutoff radius
 RC = 3.0
@@ -26,10 +26,7 @@ RC = 3.0
 BL = 0.329
 
 # Time step
-dt = 0.01
-
-# Output file name
-outputfile = 'output.out'
+dt = 0.005
 
 # Instantaneous properties output Frequency
 outputfreq = 100

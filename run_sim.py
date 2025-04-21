@@ -11,7 +11,7 @@ import numpy as np
 # --- Your Simulation Logic Goes Here ---
 # Adapt this function to take the parameters dictionary
 # and run your simulation based on its contents.
-def run_simulation(params):
+def run_simulation(params, outputfilepath):
     """
     Runs the main simulation using parameters from the input file.
 
@@ -42,7 +42,7 @@ def run_simulation(params):
         sim.rc = params.get('RC')
         sim.bl = params.get('BL')
         sim.dt = params.get('dt')
-        sim.outputfile = params.get('outputfile')
+        # sim.outputfile = params.get('outputfile')
         sim.output = params.get('outputfreq')
         sim.k = params.get('k')
         sim.moviefile = params.get('moviefile')
@@ -71,15 +71,17 @@ def run_simulation(params):
 if __name__ == '__main__':
     # Get the configuration file path from command line arguments
     # Usage: python run_simulation.py path/to/your/simulation_config.ini
-    if len(sys.argv) != 2:
-        print("Usage: python run_simulation.py <config_file_path>")
+    if len(sys.argv) != 3:
+        print("Usage: python run_simulation.py <config_file_path> <output_file_path>")
         sys.exit(1)
 
     config_filepath = sys.argv[1]
+    output_filepath = sys.argv[2]
 
     try:
         # Parse the configuration file
         simulation_parameters = parse_input_file(config_filepath)
+        simulation_parameters.update({'outputfile': output_filepath})
 
         # Run the simulation with the parsed parameters
         run_simulation(simulation_parameters)
