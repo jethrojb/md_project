@@ -20,7 +20,7 @@ def finalizefile(sim, atom, aprop, rdfcalls):
     # Calculate the diffusivity from the MSD
     # This is zero for mc simulations
     Dmsd = 0.0
-    for i in range(N):
+    for i in range(sim.Nm):
         Dmsd+=atom[i].dx*atom[i].dx + atom[i].dy*atom[i].dy + \
               atom[i].dz*atom[i].dz
     Dmsd=Dmsd/pr/N/6.0/sim.dt

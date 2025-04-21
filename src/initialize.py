@@ -129,13 +129,13 @@ def initializeFiles(sim, atom):
     file.write("rcut        " + str(sim.rc) + "\n")
     file.write("dt          " + str(sim.dt) + "\n")
 
-    file.write("\n    ***INITIAL POSITIONS, XYZ Format***\n")
-    file.write(str(sim.Nm) + "\nYou can copy these coordinates to a file to " +
-             "open in a viewer.\n")
-    for i in range(sim.Nm):
-        file.write("C\t{:13.6f}\t{:13.6f}\t{:13.6f}\n".format(atom[i].x, \
-                                                            atom[i].y, \
-                                                            atom[i].z))
+    # file.write("\n    ***INITIAL POSITIONS, XYZ Format***\n")
+    # file.write(str(sim.Nm) + "\nYou can copy these coordinates to a file to " +
+    #          "open in a viewer.\n")
+    # for i in range(sim.Nm):
+    #     file.write("C\t{:13.6f}\t{:13.6f}\t{:13.6f}\n".format(atom[i].x, \
+    #                                                         atom[i].y, \
+    #                                                         atom[i].z))
     
     file.write("\n         ***INITIAL VELOCITIES***\n")
     for i in range(sim.Nm):

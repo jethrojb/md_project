@@ -9,8 +9,8 @@ sim = simulation()
 sim.T = 8
 sim.rho=0.0009
 sim.Nm=100
-sim.eq=1000
-sim.pr=1000
+sim.eq=10000
+sim.pr=10000
 sim.itrr=1
 sim.rc=3.0
 sim.bl=0.329
@@ -28,22 +28,7 @@ sim.rescale_freq=10
 
 atom = initializeGrid(sim)
 
-# print(atom)
-
-# Assuming 'atom' is your numba.typed.List
-# atom_array = np.array([p for p in atom])
-# for i in range(sim.Nm):
-#     print('x')
-#     print(atom_array[i].x, atom_array[i + sim.Nm].x)
-#     print('y')
-#     print(atom_array[i].y, atom_array[i + sim.Nm].y)
-
-
-# Test initializing velocities
-
 initializeVelocities(sim, atom)
-
-# Test initializing output file
 
 initializeFiles(sim, atom)
 

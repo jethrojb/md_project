@@ -1,0 +1,47 @@
+# This is a simulation configuration file.
+# Lines starting with '#' are comments.
+# Parameters are in key = value format.
+
+# --- Simulation Parameters ---
+
+# Dimensionless temperature
+T = 8
+
+# Dimensionless density
+rho = 0.0009
+
+# Number of molecules
+Nm = 108
+
+# Number of equilibration steps
+EqSteps = 1000
+
+# Number of Production steps
+PrSteps = 1000
+
+# Lennard-Jones cutoff radius
+RC = 3.0
+
+# Dimensionless bond length
+BL = 0.329
+
+# Time step
+dt = 0.01
+
+# Output file name
+outputfile = 'output.out'
+
+# Instantaneous properties output Frequency
+outputfreq = 100
+
+# Bond spring constant
+k = 0.8
+
+# Movie file name
+moviefile = 'movie.xyz'
+
+# Movie capture Frequency
+moviefreq = 10
+
+# Temperature rescale frequency during equilibration
+rescale_freq = 10
