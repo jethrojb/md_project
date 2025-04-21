@@ -1,7 +1,7 @@
 from src.rdf import rdf_finalize
 import src.dhist as dh
 
-def finalizefile(sim, atom, aprop, rdfh, rdfcalls):
+def finalizefile(sim, atom, aprop, rdfcalls):
     # Variables
     pr=sim.pr
     N=sim.N
@@ -28,23 +28,23 @@ def finalizefile(sim, atom, aprop, rdfh, rdfcalls):
     # Write the data to file
     fp=open(sim.outputfile, "a")
     
-    fp.write("\n    ***FINAL POSITIONS, XYZ Format***\n")
-    fp.write(str(N) + "\nYou can copy these coordinates to a file to " +
-             "open in a viewer.\n")
-    for i in range(N):
-        fp.write("C\t{:13.6f}\t{:13.6f}\t{:13.6f}\n".format(atom[i].x, \
-                                                            atom[i].y, \
-                                                            atom[i].z))
+    # fp.write("\n    ***FINAL POSITIONS, XYZ Format***\n")
+    # fp.write(str(N) + "\nYou can copy these coordinates to a file to " +
+    #          "open in a viewer.\n")
+    # for i in range(N):
+    #     fp.write("C\t{:13.6f}\t{:13.6f}\t{:13.6f}\n".format(atom[i].x, \
+    #                                                         atom[i].y, \
+    #                                                         atom[i].z))
 
-    fp.write("\n         ***FINAL VELOCITIES***\n");
-    for i in range(N):
-        fp.write("\t{:13.6f}\t{:13.6f}\t{:13.6f}\n".format(atom[i].vx, \
-                                                        atom[i].vy, \
-                                                        atom[i].vz))
+    # fp.write("\n         ***FINAL VELOCITIES***\n");
+    # for i in range(N):
+    #     fp.write("\t{:13.6f}\t{:13.6f}\t{:13.6f}\n".format(atom[i].vx, \
+    #                                                     atom[i].vy, \
+    #                                                     atom[i].vz))
 
-    fp.write("\n***Radial Distribution Function***\n\n");
-    rdf_finalize(sim, rdfh, rdfcalls)
-    dh.write(rdfh, fp)
+    # fp.write("\n***Radial Distribution Function***\n\n");
+    # rdf_finalize(sim, rdfh, rdfcalls)
+    # dh.write(rdfh, fp)
 
 
     if sim.pr > 0:

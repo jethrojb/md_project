@@ -65,7 +65,7 @@ def md(sim, atom):
         atom[i].dz = 0.0
     
     Nrdfcalls = 0
-    rdfh = dh.hist(sim.rdfmin, sim.rdfmax, sim.rdfN)
+    # rdfh = dh.hist(sim.rdfmin, sim.rdfmax, sim.rdfN)
 
     for i in range(1, np.int64(sim.pr+1)):
         verlet1(sim, atom)
@@ -93,9 +93,9 @@ def md(sim, atom):
             fp.close()
             print("Production Step " + str(i) + "\n")
 
-            if i % sim.rdf == 0:
-                Nrdfcalls += 1
-                rdf_accumulate(sim, atom, rdfh)
+            # if i % sim.rdf == 0:
+                # Nrdfcalls += 1
+                # rdf_accumulate(sim, atom, rdfh)
 
         if i % sim.moviefreq == 0:
             fm = open(sim.moviefile, 'a')
@@ -106,5 +106,5 @@ def md(sim, atom):
                                                                         atom[i].z))
             fm.close()
 
-    finalizefile(sim, atom, avg_prop, rdfh, Nrdfcalls)
+    finalizefile(sim, atom, avg_prop, Nrdfcalls)
 
