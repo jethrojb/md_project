@@ -11,7 +11,7 @@ import numpy as np
 # --- Your Simulation Logic Goes Here ---
 # Adapt this function to take the parameters dictionary
 # and run your simulation based on its contents.
-def run_simulation(params, outputfilepath):
+def run_simulation(params):
     """
     Runs the main simulation using parameters from the input file.
 
@@ -42,7 +42,7 @@ def run_simulation(params, outputfilepath):
         sim.rc = params.get('RC')
         sim.bl = params.get('BL')
         sim.dt = params.get('dt')
-        # sim.outputfile = params.get('outputfile')
+        sim.outputfile = params.get('outputfile')
         sim.output = params.get('outputfreq')
         sim.k = params.get('k')
         sim.moviefile = params.get('moviefile')

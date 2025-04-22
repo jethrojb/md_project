@@ -25,7 +25,6 @@ sim.k = 0.8
 sim.moviefile='movie.xyz'
 sim.moviefreq=10
 sim.rescale_freq=10
-
 atom = initializeGrid(sim)
 
 initializeVelocities(sim, atom)

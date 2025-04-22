@@ -14,10 +14,10 @@ rho = 0.0009
 Nm = 108
 
 # Number of equilibration steps
-EqSteps = 5000
+EqSteps = 100
 
 # Number of Production steps
-PrSteps = 10000
+PrSteps = 100
 
 # Lennard-Jones cutoff radius
 RC = 3.0
@@ -38,7 +38,7 @@ k = 0.8
 moviefile = 'movie.xyz'
 
 # Movie capture Frequency
-moviefreq = 10
+moviefreq = 0
 
 # Temperature rescale frequency during equilibration
 rescale_freq = 10

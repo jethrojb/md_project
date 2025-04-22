@@ -96,15 +96,15 @@ def md(sim, atom):
             # if i % sim.rdf == 0:
                 # Nrdfcalls += 1
                 # rdf_accumulate(sim, atom, rdfh)
-
-        if i % sim.moviefreq == 0:
-            fm = open(sim.moviefile, 'a')
-            fm.write(str(sim.N)+'\n\n')
-            for i in range(sim.N):
-                    fm.write("C\t{:13.6f}\t{:13.6f}\t{:13.6f}\n".format(atom[i].x, \
-                                                                        atom[i].y, \
-                                                                        atom[i].z))
-            fm.close()
+        if sim.moviefreq != 0:
+          if i % sim.moviefreq == 0:
+              fm = open(sim.moviefile, 'a')
+              fm.write(str(sim.N)+'\n\n')
+              for i in range(sim.N):
+                      fm.write("C\t{:13.6f}\t{:13.6f}\t{:13.6f}\n".format(atom[i].x, \
+                                                                          atom[i].y, \
+                                                                          atom[i].z))
+              fm.close()
 
     finalizefile(sim, atom, avg_prop, Nrdfcalls)
 
