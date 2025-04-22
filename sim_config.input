@@ -14,10 +14,10 @@ rho = 0.0009
 Nm = 108
 
 # Number of equilibration steps
-EqSteps = 100
+EqSteps = 10000
 
 # Number of Production steps
-PrSteps = 100
+PrSteps = 10000
 
 # Lennard-Jones cutoff radius
 RC = 3.0
@@ -26,19 +26,19 @@ RC = 3.0
 BL = 0.329
 
 # Time step
-dt = 0.005
+dt = 0.01
 
 # Instantaneous properties output Frequency
 outputfreq = 100
 
 # Bond spring constant
-k = 0.8
+k = 0.3
 
 # Movie file name
 moviefile = 'movie.xyz'
 
 # Movie capture Frequency
-moviefreq = 0
+moviefreq = 10
 
 # Temperature rescale frequency during equilibration
 rescale_freq = 10
