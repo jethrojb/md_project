@@ -48,6 +48,7 @@ def run_simulation(params):
         sim.moviefile = params.get('moviefile')
         sim.moviefreq = params.get('moviefreq')
         sim.rescale_freq = params.get('rescale_freq')
+        sim.seed = params.get('seed')
 
         sim.itrr = 1
         sim.rdfmin = 0.8
@@ -71,17 +72,22 @@ def run_simulation(params):
 if __name__ == '__main__':
     # Get the configuration file path from command line arguments
     # Usage: python run_simulation.py path/to/your/simulation_config.ini
-    if len(sys.argv) != 3:
-        print("Usage: python run_simulation.py <config_file_path> <output_file_path>")
+    if len(sys.argv) != 3 and len(sys.argv) != 4:
+        print("Usage: python run_simulation.py <config_file_path> <output_file_path> <random number seed>=-1")
         sys.exit(1)
 
     config_filepath = sys.argv[1]
     output_filepath = sys.argv[2]
+    if len(sys.argv) == 4:
+        seed = float(sys.argv[3])
+    else:
+        seed = -1.0
 
     try:
         # Parse the configuration file
         simulation_parameters = parse_input_file(config_filepath)
         simulation_parameters.update({'outputfile': output_filepath})
+        simulation_parameters.update({'seed': seed})
 
         # Run the simulation with the parsed parameters
         run_simulation(simulation_parameters)

@@ -57,7 +57,7 @@ class simulation:
         self.output=0           # interval for output of instantaneous props
         self.utail=0.0          # tail correction to energy
         self.ptail=0.0          # tail correction to pressure
-        self.seed=-1
+        self.seed=-1.0
         self.rdfmin=0.0         # minimum r value for rdf
         self.rdfmax=0.0         # maximum r value for rdf
         self.rdfN=0             # number of bins for rdf
